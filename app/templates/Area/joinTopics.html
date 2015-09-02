@@ -1,0 +1,22 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-positive">
+        <h1 class="title">参与的话题</h1>
+        <button class="button button-clear button-primary" ng-click="oModal4.hide()">取消</button>
+    </ion-header-bar>
+    <ion-content bindonce="Account" ng-click="oModal4.hide()">
+        <div ng-if="Account.collect_topics.length==0" class="button button-block button-light">暂无数据</div>
+
+        <ion-list>
+            <a class="item item-avatar" bindonce ng-repeat="topic in Account.recent_replies"
+               type="item-text-wrap"
+               bo-href="'#/tab/topicDetail/'+topic.id">
+                <img bo-src="Account.avatar_url|avatarFilter">
+
+                <h2 bo-bind="topic.title"></h2>
+
+                <p>
+                    <span am-time-ago="topic.last_reply_at"></span></p>
+            </a>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

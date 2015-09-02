@@ -1,0 +1,63 @@
+<ion-view view-title="用户详情">
+    <ion-content bindonce="Account">
+        <ion-list>
+            <ion-item class="item-divider item-gap">
+            </ion-item>
+            <a class="item item-avatar" href="#">
+                <img bo-src="Account.avatar_url|avatarFilter"/>
+
+                <h2><span bo-bind="Account.loginname"></span></h2>
+            </a>
+            <ion-item>
+                积分
+                <span class="version" bo-bind="Account.score"></span>
+            </ion-item>
+            <ion-item>
+                注册日期
+                <span class="version" bo-bind="Account.create_at|date:'yyyy-MM-dd'"></span>
+            </ion-item>
+            <ion-item class="item-divider item-gap">
+                最近创建的话题
+            </ion-item>
+            <div ng-if="Account.recent_topics.length==0" class="button button-block button-light">暂无数据</div>
+            <a class="item item-avatar" bindonce ng-repeat="topic in Account.recent_topics"
+               type="item-text-wrap"
+               bo-href="'#/tab/topicDetail/'+topic.id">
+                <img bo-src="Account.avatar_url|avatarFilter">
+
+                <h2 bo-bind="topic.title"></h2>
+
+                <p>
+                    <span am-time-ago="topic.last_reply_at"></span></p>
+            </a>
+            <ion-item class="item-divider item-gap">
+                最近参与的话题
+            </ion-item>
+            <div ng-if="Account.recent_replies.length==0" class="button button-block button-light">暂无数据</div>
+            <a class="item item-avatar" bindonce ng-repeat="topic in Account.recent_replies"
+               type="item-text-wrap"
+               bo-href="'#/tab/topicDetail/'+topic.id">
+                <img bo-src="Account.avatar_url|avatarFilter">
+
+                <h2 bo-bind="topic.title"></h2>
+
+                <p>
+                    <span am-time-ago="topic.last_reply_at"></span></p>
+            </a>
+            <ion-item class="item-divider item-gap">
+                最近收藏
+            </ion-item>
+            <div ng-if="Account.collect_topics.length==0" class="button button-block button-light">暂无收藏</div>
+            <a class="item item-avatar" bindonce ng-repeat="collect in Account.collect_topics"
+               type="item-text-wrap"
+               bo-href="'#/tab/topicDetail/'+collect.id">
+                <img bo-src="Account.avatar_url|avatarFilter">
+
+                <h2 bo-bind="collect.title"></h2>
+
+                <p>
+                    <span am-time-ago="collect.last_reply_at"></span></p>
+            </a>
+        </ion-list>
+    </ion-content>
+</ion-view>

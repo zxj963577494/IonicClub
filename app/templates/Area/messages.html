@@ -1,0 +1,48 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-positive">
+        <h1 class="title">消息</h1>
+        <button class="button button-clear button-primary" ng-click="oModal2.hide()">取消</button>
+    </ion-header-bar>
+    <ion-content ng-click="oModal2.hide()">
+        <ion-list>
+            <ion-item class="item-divider item-gap">
+                未读消息
+              <!--  <a style="float: right" class="positive" ng-click="setHasRead()">全部设为已读</a>-->
+            </ion-item>
+            <div ng-if="messages.hasnot_read_messages.length==0" class="button button-block button-light">暂无未读消息</div>
+            <ion-item bindonce ng-repeat="message in messages.hasnot_read_messages">
+                <p ng-if="message.type == 'reply'">
+                    <a bo-href="'#/user/'+message.author.loginname"><span bo-bind="message.topic.loginname"></span></a>
+                    回复了你的话题
+                    <a bo-href="'#/tab/topicDetail/'+topic.id"><span bo-bind="message.topic.title"></span></a>
+                </p>
+
+                <p ng-if="message.type == 'at'">
+                    <a bo-href="'#/user/'+message.author.loginname"><span bo-bind="message.topic.loginname"></span></a>
+                    在话题
+                    <a bo-href="'#/tab/topicDetail/'+topic.id"><span bo-bind="message.topic.title"></span></a>
+                    中@了你
+                </p>
+            </ion-item>
+            <ion-item class="item-divider item-gap">
+                已读消息
+            </ion-item>
+            <div ng-if="messages.has_read_messages.length==0" class="button button-block button-light">暂无已读消息</div>
+            <ion-item bindonce ng-repeat="message in messages.has_read_messages">
+                <p ng-if="message.type == 'reply'">
+                    <a bo-href="'#/user/'+message.author.loginname"><span bo-bind="message.author.loginname"></span></a>
+                    回复了你的话题
+                    <a bo-href="'#/tab/topicDetail/'+topic.id"><span bo-bind="message.topic.title"></span></a>
+                </p>
+
+                <p ng-if="message.type == 'at'">
+                    <a bo-href="'#/user/'+message.author.loginname"><span bo-bind="message.author.loginname"></span></a>
+                    在话题
+                    <a bo-href="'#/tab/topicDetail/'+topic.id"><span bo-bind="message.topic.title"></span></a>
+                    中@了你
+
+                </p>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

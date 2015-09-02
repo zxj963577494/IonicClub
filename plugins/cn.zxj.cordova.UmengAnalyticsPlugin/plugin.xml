@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cn.zxj.cordova.UmengAnalyticsPlugin"
+        version="0.0.1">
+    <name>UmengAnalytics Plugin</name>
+    <description>
+        umengAnalytics for cordova plugin
+    </description>
+    <author>zhengxvjiang</author>
+    <license>Apache 2.0 License</license>
+    <keywords>umengAnalytics,umeng,analytics</keywords>
+    <repo>https://github.com/zxj963577494/cn.zxj.cordova.UmengAnalyticsPlugin.git</repo>
+    <issue>https://github.com/zxj963577494/cn.zxj.cordova.UmengAnalyticsPlugin/issues</issue>
+    <engines>
+        <engine name="cordova" version=">=3.0.0"/>
+    </engines>
+
+    <js-module src="www/UmengAnalyticsPlugin.js" name="UmengAnalyticsPlugin">
+        <clobbers target="window.plugins.umengAnalyticsPlugin"/>
+    </js-module>
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="UmengAnalyticsPlugin">
+                <param name="ios-package" value="UmengAnalyticsPlugin"/>
+            </feature>
+        </config-file>
+        <header-file src="src/ios/MobClick.h" target-dir="src/ios"/>
+        <source-file src="src/ios/libMobClickLibrary.a" framework="true"/>
+        <header-file src="src/ios/UmengAnalyticsPlugin.h" />
+        <source-file src="src/ios/UmengAnalyticsPlugin.m" />
+        <framework src="libz.dylib" weak="true"/>
+    </platform>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="UmengAnalyticsPlugin">
+                <param name="android-package" value="cn.zxj.cordova.UmengAnalyticsPlugin"/>
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+            <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <meta-data android:name="UMENG_CHANNEL" android:value="fir.im"/>
+            <meta-data android:name="UMENG_APPKEY" android:value="55d7cb8de0f55a48cf004566"/>
+        </config-file>
+        <source-file src="src/android/umeng-analytics-v5.5.2.jar" target-dir="libs"></source-file>
+        <source-file src="src/android/UmengAnalyticsPlugin.java"
+                     target-dir="src/cn/zxj/cordova/UmengAnalyticsPlugin/"></source-file>
+    </platform>
+
+    <!-- wp -->
+    <platform name="wp8">
+        <config-file target="config.xml" parent="/*">
+            <feature name="UmengAnalyticsPlugin">
+                <param name="wp-package" value="UmengAnalyticsPlugin"/>
+            </feature>
+        </config-file>
+        <config-file target="Properties/WMAppManifest.xml" parent="/Deployment/App/Capabilities">
+            <Capability Name="ID_CAP_IDENTITY_DEVICE" />
+            <Capability Name="ID_CAP_IDENTITY_USER" />
+            <Capability Name="ID_CAP_NETWORKING" />
+        </config-file>
+        <framework src="src/wp/UmengAnalyticsWP8.dll" custom="true" />
+        <source-file src="src/wp/UmengAnalyticsPlugin.cs" />
+    </platform>
+
+</plugin>

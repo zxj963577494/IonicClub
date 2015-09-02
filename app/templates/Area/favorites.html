@@ -1,0 +1,24 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-positive">
+        <h1 class="title">收藏</h1>
+        <button class="button button-clear button-primary" ng-click="oModal1.hide()">取消</button>
+    </ion-header-bar>
+    <ion-content bindonce="Account" ng-click="oModal1.hide()">
+        <div ng-if="Account.collect_topics.length==0" class="button button-block button-light">暂无收藏</div>
+        <ion-list id="favorite">
+            <ion-item class="item item-avatar  item-icon-right" bindonce ng-repeat="collect in Account.collect_topics"
+                      type="item-text-wrap">
+                <img bo-src="Account.avatar_url|avatarFilter">
+
+                <a bo-href="'#/tab/topicDetail/'+collect.id"><h2 bo-bind="collect.title"></h2>
+                </a>
+
+                <p>
+                    <span am-time-ago="collect.last_reply_at"></span></p>
+
+                <i ng-click="deCollect(collect.id)" class="icon ion-ios-trash-outline"></i>
+
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

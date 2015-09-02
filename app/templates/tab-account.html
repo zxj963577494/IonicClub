@@ -1,0 +1,50 @@
+<ion-view view-title="个人中心" cache-view="false">
+    <ion-content bindonce="Account" style="background: #f4f4f4">
+        <ion-list>
+            <ion-item class="item-divider item-gap">
+            </ion-item>
+            <a class="item item-avatar item-icon-right" href="#/tab/account/detail">
+                <img bo-src="Account.avatar_url|avatarFilter">
+
+                <h2><span bo-bind="Account.loginname"></span></h2>
+
+                <p>积分：<span bo-bind="Account.score"></span></p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+
+            <div class="button-bar bar-light text-center">
+                <a class="button icon-left" ng-click="openModal(1)">
+                    <i class="icon ion-ios-star-outline"></i>
+                    <span>收藏</span>
+                </a>
+                <a class="button icon-left" badge="messageCount"
+                   badge-style="badge-assertive" ng-click="openModal(2)"><i class="icon ion-ios-email-outline"></i>
+                    消息 <span ng-if="badges.message" class="badge badge-assertive" bo-bind="badges.message"></span></a>
+            </div>
+            <div class="button-bar bar-light text-center">
+                <a class="button  icon-left" ng-click="openModal(3)"><i class="icon ion-ios-chatbubble-outline"></i>
+                    创建的话题</a>
+                <a class="button  icon-left" ng-click="openModal(4)"><i class="icon ion-ios-chatboxes-outline"></i>
+                    参与的话题</a>
+            </div>
+            <ion-item class="item-divider item-gap">
+                关于
+            </ion-item>
+            <ion-item>
+                当前版本
+                <span class="item-note">1.0.0</span>
+                <!--<span class="item-note" ng-bind="appVersion"></span>-->
+            </ion-item>
+            <ion-item>
+                联系作者
+                <span class="item-note">963577494@qq.com</span>
+            </ion-item>
+            <ion-item onclick="window.open('http://ionichina.com/about', '_blank', 'location=yes')">
+                关于Ionichina社区
+            </ion-item>
+        </ion-list>
+        <div class="text-center">
+            &copy; @zxj963577494
+        </div>
+    </ion-content>
+</ion-view>

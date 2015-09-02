@@ -1,0 +1,43 @@
+<ion-view view-title="登录" cache-view="false">
+    <ion-content style="background: #f4f4f4">
+        <ion-list>
+            <ion-item class="item-divider item-gap">
+            </ion-item>
+            <ion-item class="login text-center" ng-click="login()">
+                <img src="img/person.png" class="avatar">
+
+                <p></p>
+                <h4>立即登录</h4>
+            </ion-item>
+            <div class="button-bar bar-light text-center">
+                <a class="button icon-left">
+                    <i class="icon ion-ios-star-outline"></i>
+                    <span>收藏</span>
+                </a>
+                <a class="button icon-left"><i class="icon ion-ios-email-outline"></i> 消息</a>
+            </div>
+            <div class="button-bar bar-light text-center">
+                <a class="button  icon-left"><i class="icon ion-ios-chatbubble-outline"></i> 创建的话题</a>
+                <a class="button  icon-left"><i class="icon ion-ios-chatboxes-outline"></i> 参与的话题</a>
+            </div>
+            <ion-item class="item-divider item-gap">
+                关于
+            </ion-item>
+            <ion-item>
+                当前版本
+                <!--<span class="item-note" ng-bind="appVersion"></span>-->
+                <span class="item-note">1.0.0</span>
+            </ion-item>
+            <ion-item>
+                联系作者
+                <span class="item-note">963577494@qq.com</span>
+            </ion-item>
+            <ion-item onclick="window.open('http://ionichina.com/about', '_blank', 'location=yes')">
+                关于Ionichina社区
+            </ion-item>
+        </ion-list>
+        <div class="text-center">
+            &copy; @zxj963577494
+        </div>
+    </ion-content>
+</ion-view>

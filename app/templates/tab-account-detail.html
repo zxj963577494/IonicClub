@@ -1,0 +1,25 @@
+<ion-view view-title="个人中心">
+    <ion-content bindonce="Account" style="background: #f4f4f4">
+        <ion-list>
+            <ion-item class="item-divider item-gap">
+            </ion-item>
+            <a class="item item-avatar" href="#">
+                <img bo-src="Account.avatar_url|avatarFilter"/>
+
+                <h2><span bo-bind="Account.loginname"></span></h2>
+            </a>
+            <ion-item>
+                积分
+                <span class="version" bo-bind="Account.score"></span>
+            </ion-item>
+            <ion-item>
+                注册日期
+                <span class="version" bo-bind="Account.create_at|date:'yyyy-MM-dd'"></span>
+            </ion-item>
+            <ion-item>
+                <button ng-click="loginOut()"
+                        class="button button-full button-positive">注销
+                </button>
+            </ion-item>
+        </ion-list>
+</ion-view>

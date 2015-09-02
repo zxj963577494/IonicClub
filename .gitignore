@@ -1,0 +1,13 @@
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
+
+/www
+/.idea
+/platforms
+coverage/
+build/
+.gradle/
+.tmp/
+.temp/
+*.log
+bower_components/

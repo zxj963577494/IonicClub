@@ -1,0 +1,32 @@
+<ion-view view-title="Ionic 中文论坛">
+    <ion-nav-buttons side="right">
+        <button ng-disabled="topicsData.accesstoken== ''" class="button button-icon icon ion-plus-round" ng-click="openModal()"></button>
+    </ion-nav-buttons>
+    <ion-content scroll="true" lazy-scroll>
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+        <div class="list">
+            <a class="item item-avatar" bindonce ng-repeat="topic in topics" type="item-text-wrap"
+               bo-href="'#/tab/topicDetail/'+topic.id">
+                <img lazy-src="{{topic.author.avatar_url|avatarFilter}}">
+
+                <h2 bo-bind="topic.title"></h2>
+
+                <h3 ng-if="!topic.top&&!topic.good" style="margin-top: 5px;"
+                    class="light balanced-bg balanced-border tab" bo-bind="topic.tab|tabName"></h3>
+
+                <h3 ng-if="topic.top" style="margin-top: 5px;"
+                    class="light assertive-bg assertive-border tab">置顶</h3>
+
+                <h3 ng-if="topic.good && !topic.top" style="margin-top: 5px;"
+                    class="tab light positive-bg positive-border">精华</h3>
+
+                <h3 style="margin-top: 7px; margin-left: 10px;" class="loginname light-bg light-border"
+                    bo-bind="topic.author.loginname"></h3>
+
+                <h3 style="margin-top: 5px;" class="agotime"
+                    am-time-ago="topic.last_reply_at"></h3>
+            </a>
+        </div>
+        <ion-infinite-scroll ng-if="more" on-infinite="loadMore()" distance="10%"></ion-infinite-scroll>
+    </ion-content>
+</ion-view>

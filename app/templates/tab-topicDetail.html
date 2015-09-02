@@ -1,0 +1,60 @@
+<ion-view view-title="Ionic 中文论坛">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-star-outline" ng-disabled="collectData.accesstoken == ''"
+                ng-click="collect()"></button>
+        &nbsp;&nbsp;
+        <button class="button button-icon icon ion-share" ng-click="share()"></button>
+    </ion-nav-buttons>
+    <ion-content class="padding" bindonce="topicDetail" lazy-scroll>
+        <div class="list card" id="topicContent">
+            <div class="item item-avatar">
+                <img bo-src="topicDetail.author.avatar_url|avatarFilter">
+
+                <a bo-href="'#/user/'+topicDetail.author.loginname"><h2 class="positive"
+                                                                        bo-bind="topicDetail.author.loginname"></h2></a>
+
+                <p>发布 <span class="balanced" am-time-ago="topicDetail.create_at"></span> 最后回复 <span
+                        class="balanced" am-time-ago="topicDetail.last_reply_at"></span></p>
+            </div>
+
+            <div class="item item-body">
+                <p>
+
+                <div bo-html="topicDetail.content| link"></div>
+                </p>
+
+                <p>
+                    <a class="subdued"><span bo-bind="topicDetail.visit_count"></span> 浏览</a>
+                    <a class="subdued"><span bo-bind="topicDetail.reply_count"></span> 评论</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="list" id="comment">
+            <div class="item item-avatar"
+                 ng-repeat="replie in topicDetail.replies">
+                <img class="avatar" bo-src="replie.author.avatar_url">
+                <a bo-href="'#/user/'+replie.author.loginname"><h2 class="positive"
+                                                                   bo-bind="replie.author.loginname"></h2></a>
+                </p>
+                <div class="item-text-wrap" bo-html="replie.content|link"></div>
+                </p>
+                <div class="reply">
+                    <button class="button icon ion-thumbsup" ng-click="replieUps(replie.id)"></button>
+                    <button class="button icon ion-chatbox-working"
+                            ng-click="reReply(replie.id,replie.author.loginname)"></button>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar align-title="left" class="bar-light reply-new" keyboard-attach>
+        <label class="item-input-wrapper">
+            <input type="text" placeholder="请登录后回复" ng-model="replyData.content"
+                   ng-disabled="replyData.accesstoken == ''">
+        </label>
+        <button class="button button-small button-clear button-positive" ng-click="saveReply()"
+                ng-disabled="replyData.accesstoken == '' || replyData.content == ''">
+            提交
+        </button>
+    </ion-footer-bar>
+</ion-view>
