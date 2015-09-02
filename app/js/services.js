@@ -188,24 +188,6 @@ angular.module('IonicClub.services', [])
             }
         }
     }])
-    // App
-    .service('AppService', ['$http', '$q', function ($http, $q) {
-        return {
-            //获取版本更新
-            getVersion: function () {
-                var deferred = $q.defer();
-                var data = "1.0.0";
-                deferred.resolve(data);
-                /*url = webDomain + "/api/App/GetVersion";
-                 $http.get(url).success(
-                 function (data) {
-                 deferred.resolve(data);
-                 }
-                 );*/
-                return deferred.promise;
-            }
-        };
-    }])
     .service('ConfigService', [function () {
         var hostURL = "http://ionichina.com";
 
