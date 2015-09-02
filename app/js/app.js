@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('IonicClub', ['ionic', 'IonicClub.router', 'IonicClub.controllers', 'IonicClub.services', 'IonicClub.filters', 'IonicClub.directives', 'IonicClub.pluginServices', 'ngCordova', 'LocalStorageModule', 'pasvaz.bindonce', 'angularMoment'])
 
-    .run(['$ionicPlatform', '$rootScope', '$state', '$timeout', '$ionicHistory', '$cordovaAppVersion', '$ionicPopup', '$ionicLoading', '$cordovaFileTransfer', '$cordovaFile', '$cordovaFileOpener2', '$cordovaProgress', 'ToastService', 'AppService', 'SplashscreenService', 'UmengService', 'amMoment', function ($ionicPlatform, $rootScope, $state, $timeout, $ionicHistory, $cordovaAppVersion, $ionicPopup, $ionicLoading, $cordovaFileTransfer, $cordovaFile, $cordovaFileOpener2, $cordovaProgress, ToastService, AppService, SplashscreenService, UmengService, amMoment) {
+    .run(['$ionicPlatform', '$rootScope', '$state', '$timeout', '$ionicHistory', '$cordovaAppVersion', '$ionicPopup', '$ionicLoading', '$cordovaFileTransfer', '$cordovaFile', '$cordovaFileOpener2', '$cordovaProgress', 'ToastService', 'SplashscreenService', 'UmengService', 'amMoment', function ($ionicPlatform, $rootScope, $state, $timeout, $ionicHistory, $cordovaAppVersion, $ionicPopup, $ionicLoading, $cordovaFileTransfer, $cordovaFile, $cordovaFileOpener2, $cordovaProgress, ToastService, SplashscreenService, UmengService, amMoment) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
