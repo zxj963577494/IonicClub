@@ -1,10 +1,6 @@
 # 注意
 --------------
-由于[Ionic中文论坛](http://ionichina.com/ "Ionic中文论坛")已关闭，可以将域名替换成同类站点的域名，如[CNode：Node.js专业中文社区](https://cnodejs.org/ "CNode：Node.js专业中文社区")，不保证只改域名就可以使用，因为没有测试，😂😂😂。
-
-# 建议弃用
-### AngularJs 1.x 效率实在是低，建议使用AngularJs 2.x ，所以Ionic2才是真选择
-### [ES2015+AngularJs2.x+Ionic2](https://github.com/zxj963577494/Ionic2-IonicClub)
+建议查看Ionic 3.4.2 + Angular 4 + TypeScript 2.3 制作的[CNode中文论坛](https://cnodejs.org/ "CNode中文论坛")客户端。
 
 # Ionic 中文社区
 ### 1.run gulp (如失败，可多试几次，看电脑性能)
